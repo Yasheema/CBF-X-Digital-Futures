@@ -1,27 +1,29 @@
-//Put in ticketPurchasers and seats they're selecting with children:
 let ticketPurchaser = { 
     audience: {
     'stalls': {
       seat: 'A37',
-      childName: ['Yasheema'] && ['Fadumo'],
+      childName: 'Yasheema',
       ageC: '15',
+      ticket: 757,
+      'stalls': {
+      seat: 'A38',
       adultName:'Rachel',
       age: '42',
-      ticket: {let randomTicketNum = Math.floor(Math.random()*1557)+ 1}*3
+      ticket: 758
 },
     'grand circle': {
       seat: 'E45',
       childName: 'Riley',
       ageC: '4',
       adultName: 'Taylor',
-      age: '35'
-      ticket: {let randomTicketNum = Math.floor(Math.random()*1557)+ 1}
+      age: '35',
 },
     'upper circle': {
       seat: 'JJ25',
       adultName: 'Abigail',
-      age: '21' 
-      ticket: {let randomTicketNum = Math.floor(Math.random()*1557)+ 1}
+      age: '21', 
+      ticket: '145'
+      }
 }
 } 
 }
@@ -33,11 +35,11 @@ for (let ageNum in ticketPurchaser.audience)
     }
   }
 }
-}//would like to ensure Taylor can't purchase ticket as child can't purchase ticket due to age.
+}//would like to ensure taylor can't purchase ticket as child can't
 
-//I would like to code for the random ticket winner:
+//I would like to code for the random ticket winner 
 const ticketWin = () => {let randomTicketNum = Math.floor(Math.random()*1557)+ 1}
 if (ticketWin === '782' || '454') {console.log ('Congratulations ticket number ' + winnerTicket + ', you have won the ticket giveaway. Please go to the box office on the day of the performance to collect your ticket.')}
 
 
-//New section: coding for seats in different sections:
+//coding for seats in different sections
