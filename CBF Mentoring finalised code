@@ -1,45 +1,94 @@
-let ticketPurchaser = { 
-    audience: {
-    'stalls': {
-      seat: 'A37',
-      childName: 'Yasheema',
-      ageC: '15',
-      ticket: 757,
-      'stalls': {
-      seat: 'A38',
-      adultName:'Rachel',
-      age: '42',
-      ticket: 758
-},
-    'grand circle': {
-      seat: 'E45',
-      childName: 'Riley',
-      ageC: '4',
-      adultName: 'Taylor',
-      age: '35',
-},
-    'upper circle': {
-      seat: 'JJ25',
-      adultName: 'Abigail',
-      age: '21', 
-      ticket: '145'
+class Audience {
+    constructor(name, age, seatNum, ticket) {
+      this._name = name;
+      this._age = age;
+      this._seatNum = seatNum;   
+      this._ticket = ticket;
       }
-}
-} 
-}
-for (let ageNum in ticketPurchaser.audience) 
-{ticketPurchaser.audience[ageNum].age, ticketPurchaser.audience[ageNum].ageC;
-{if (ticketPurchaser.audience[ageNum].age && ticketPurchaser.audience[ageNum].ageC < 6  === true) {
-  console.log (`Can not purchase tickets for anyone aged ${ticketPurchaser.audience[ageNum].age && ticketPurchaser.audience[ageNum].ageC}.`) 
-    ;} else {for (let audienceName in ticketPurchaser.audience) { console.log (`Thank you for your purchase ${ticketPurchaser.audience[audienceName].adultName}.`)
+    
+    get name() {
+      return this._name;
     }
-  }
+    get age() {
+      return ('Age' + this._age);
+    }
+    get seatNum() {
+        return ('Seat Number' + this._seatNum)
+    }
+   get ticket () {
+    return (this._ticket) ;
+    }
 }
-}//would like to ensure taylor can't purchase ticket as child can't
+  
+  class stallAudience extends Audience {
+    constructor (name, age, seatNum, ticket, seatPlace, performanceTime, childAge) {
+    super(name, age, seatNum, ticket)
+    this._seatPrice = '130'
+    this._seatPlace = 'Stalls'
+    this._performanceTime = 'Performance is at 2.00pm'     
+    this._childAge = '2'
+       }
+       get childAge () {
+         return this._childAge;}
+        get performanceTime () {
+            return ('Performance is at 2pm')
+        }
+        get seatPlace () {
+            return ('Stalls')
+        }
+        totalPrice(audienceMembers) {
+            return (`Seat price is £${this._seatPrice * audienceMembers}`)
+        }
+}
+const audienceRiley = new stallAudience ('Riley', '25' ,'A34', '336, 337', 'Stalls', '2', '2');
 
-//I would like to code for the random ticket winner 
-const ticketWin = () => {let randomTicketNum = Math.floor(Math.random()*1557)+ 1}
-if (ticketWin === '782' || '454') {console.log ('Congratulations ticket number ' + winnerTicket + ', you have won the ticket giveaway. Please go to the box office on the day of the performance to collect your ticket.')}
+class grandCircleAudience extends Audience {
+    constructor (name, age, seatNum, ticket, seatPlace, performanceTime,childAge1, childAge2) {
+    super(name, age, seatNum, ticket)
+    this._seatPrice = '80'
+    this._seatPlace = 'Grand Circle'
+    this._performanceTime = 'Performance is at 7.30pm'
+    this._childAge1 = '14'
+    this._childAge2 = '15'     
+    }
+    get performanceTime () {
+        return ('Performance is at 7.30pm')
+    }
+    get seatPlace () {
+        return ('Grand Circle')
+    }
+    get childAge1 () {
+        return ('14')
+    }
+    get childAge2 () {
+        return ('15')
+    }
+    totalPrice(audienceMembers) {
+        return (`Seat price is £${this._seatPrice * audienceMembers}`)
+    }
+}
+const audienceTaylor = new grandCircleAudience ('Taylor', '50' ,'J37', '673', 'Grand Circle', '7.30', '14', '15');
 
+class royalCircleAudience extends Audience {
+    constructor (name, age, seatNum, ticket, seatPlace, performanceTime,) {
+    super(name, age, seatNum, ticket)
+    this._seatPrice = '49'
+    this._seatPlace = 'Grand Circle'
+    this._performanceTime = 'Performance is at 2.00pm'      
+    }
+    get performanceTime () {
+        return ('Performance is at 2.00pm')
+    }
+    get seatPlace () {
+        return ('Royal Circle')
+    }
+    totalPrice(audienceMembers) {
+        return (`Seat price is £${this._seatPrice * audienceMembers}`)
+    }
+}
+const audienceYasheema = new grandCircleAudience ('Yasheema', '21' ,'RR19', '879', 'Royal Circle', '2');
 
-//coding for seats in different sections
+const winnerTicket = () => (audienceYasheema.ticket||audienceRiley.ticket|| audienceTaylor.ticket);  
+{if (winnerTicket === 879 || 963)
+  return (`Congratulations ${audienceYasheema.name||audienceRiley.name|| audienceTaylor.name}, you have won the ticket giveaway. Please go to the box office on the day of the performance to collect your ticket`)}
+console.log(winnerTicket())
