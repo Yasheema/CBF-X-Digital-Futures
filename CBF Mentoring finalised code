@@ -27,6 +27,10 @@ class Audience {
     this._seatPlace = 'Stalls'
     this._performanceTime = 'Performance is at 2.00pm'     
     this._childAge = '2'
+    {if (childAge <= '3'=== true)
+    console.log (
+    "Can not purchase tickets for a " + childAge + " year old.")
+    }
        }
        get childAge () {
          return this._childAge;}
@@ -47,10 +51,16 @@ class grandCircleAudience extends Audience {
     super(name, age, seatNum, ticket)
     this._seatPrice = '80'
     this._seatPlace = 'Grand Circle'
-    this._performanceTime = 'Performance is at 7.30pm'
+    this._performanceTime = '7.30'
     this._childAge1 = '14'
     this._childAge2 = '15'     
-    }
+    {if (childAge1 <=3 ||childAge2 <= 3)
+    console.log (
+   `Can not purchase tickets for a  ${childAge1 ||  childAge2}  year old.`)
+   }; if 
+     (childAge1 <= 17 && performanceTime === '7.30' ||childAge2 <= 17 && performanceTime === '7.30' );
+     console.log (`Children can not watch the 7.30pm show, please purchase the 2pm show.` ) 
+  }
     get performanceTime () {
         return ('Performance is at 7.30pm')
     }
@@ -86,9 +96,10 @@ class royalCircleAudience extends Audience {
         return (`Seat price is £${this._seatPrice * audienceMembers}`)
     }
 }
-const audienceYasheema = new grandCircleAudience ('Yasheema', '21' ,'RR19', '879', 'Royal Circle', '2');
+const audienceYasheema = new grandCircleAudience ('Yasheema', '21' ,'RR19', '879', 'Grand Circle', '2');
 
-const winnerTicket = () => (audienceYasheema.ticket||audienceRiley.ticket|| audienceTaylor.ticket);  
-{if (winnerTicket === 879 || 963)
-  return (`Congratulations ${audienceYasheema.name||audienceRiley.name|| audienceTaylor.name}, you have won the ticket giveaway. Please go to the box office on the day of the performance to collect your ticket`)}
+const winnerTicket = () => {
+  if (winnerTicket === 879 || 963);
+  return (`Congratulations ${audienceYasheema.name||audienceRiley.name|| audienceTaylor.name}, you have won the ticket giveaway. Please go to the box office on the day of the performance to collect your ticket.`)
+  };
 console.log(winnerTicket())
