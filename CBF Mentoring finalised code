@@ -42,7 +42,7 @@ class Audience {
     childAge(ageNum) {
       if (childAge <= 17 && performanceTime === "7.30");
       {
-        return `Children aged ${childAge} can not watch the 7.30pm show, please purchase the 2pm show.`;
+        return `Children aged ${ageNum} can not watch the 7.30pm show, please purchase the 2pm show.`;
       }
       if (childAge <= "3" === true);
       {
@@ -130,7 +130,6 @@ class Audience {
       this._performanceTime = "7.30";
     }
   }
-  
   const audienceYasheema = new grandCircleAudience(
     "Yasheema",
     "21",
