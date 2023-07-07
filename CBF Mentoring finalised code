@@ -36,21 +36,23 @@ class Audience {
     get seatPlace() {
       return this._seatPlace;
     }
-    totalPrice(audienceMembers) {
-      return `Total price is £${this._seatPrice * audienceMembers}.`;
+    get ticket() {    
+      if (ticket === "879" || "963")  {return `error`;}
+    else { return ticket = Math.floor(Math.random() * 1557) + 1; } 
     }
+    totalPrice(audienceMembers) {
+      return `Total price is £${this._seatPrice * audienceMembers}.`;}
     childAge(ageNum) {
-      if (childAge <= 17 && performanceTime === "7.30");
+      if (ageNum <= 17 && performanceTime === "7.30")
       {
         return `Children aged ${ageNum} can not watch the 7.30pm show, please purchase the 2pm show.`;
       }
-      if (childAge <= "3" === true);
+      else if (ageNum <= "3" === true);
       {
-        return "Can not purchase tickets for a " + childAge + " year old.";
+        return "Can not purchase tickets for a " + ageNum + " year old.";
       }
     }
-  }
-  module.exports = Audience;
+}  
   class stallAudience extends Audience {
     constructor(
       name,
@@ -62,8 +64,10 @@ class Audience {
       performanceTime
     ) {
       super(name, age, seatNum, ticket, seatPrice, seatPlace, performanceTime);
-      this._childAge = "2"; //how to stop code when condition for child is not met?
+      this._childAge = "2"; 
+      this._performanceTime = "2"  
     }
+  
   }
   const audienceRiley = new stallAudience(
     "Riley",
@@ -75,9 +79,6 @@ class Audience {
     "2"
   );
   console.log(audienceRiley);
-  console.log(audienceRiley.totalPrice(2));
-  module.exports = audienceRiley;
-  
   class royalCircleAudience extends Audience {
     constructor(
       name,
@@ -112,8 +113,6 @@ class Audience {
     "Royal Circle",
     "7.30"
   );
-  module.exports = audienceTaylor;
-  
   class grandCircleAudience extends Audience {
     constructor(
       name,
@@ -138,5 +137,6 @@ class Audience {
     "grandCircle",
     "7.30"
   );
-  module.exports = audienceYasheema;
-  
+  //const Audience = require('../src/mainfile.js');//the thing inside the statement is the path of the file relative to the current file
+  //dot dot (..)means go up a directory and a single dot (.)= same directory
+  console.log(audienceRiley.childAge(3))
