@@ -43,7 +43,7 @@ class Audience {
     totalPrice(audienceMembers) {
       return `Total price is £${this._seatPrice * audienceMembers}.`;}
     childAge(ageNum) {
-      if (ageNum <= 17 && performanceTime === "7.30")
+      if (ageNum <= 17 && this._performanceTime === "7.30")
       {
         return `Children aged ${ageNum} can not watch the 7.30pm show, please purchase the 2pm show.`;
       }
@@ -65,10 +65,9 @@ class Audience {
     ) {
       super(name, age, seatNum, ticket, seatPrice, seatPlace, performanceTime);
       this._childAge = "2"; 
-      this._performanceTime = "2"  
     }
-  
   }
+  
   const audienceRiley = new stallAudience(
     "Riley",
     "25",
@@ -78,7 +77,6 @@ class Audience {
     "Stalls",
     "2"
   );
-  console.log(audienceRiley);
   class royalCircleAudience extends Audience {
     constructor(
       name,
@@ -139,4 +137,5 @@ class Audience {
   );
   //const Audience = require('../src/mainfile.js');//the thing inside the statement is the path of the file relative to the current file
   //dot dot (..)means go up a directory and a single dot (.)= same directory
-  console.log(audienceRiley.childAge(3))
+ 
+  
